@@ -3,9 +3,11 @@ package service;
 import java.util.ArrayList;
 import java.util.List;
 
-public class PrintService {
+
+//aplicando generics e typesafety
+public class PrintService<Type> {
 	
-	private List<Integer> list = new ArrayList<>();
+	private List<Type> list = new ArrayList<>();
 
 	
 
@@ -13,19 +15,17 @@ public class PrintService {
 		
 	}
 
-	public List<Integer> getList() {
+	public List<Type> getList() {
 		return list;
 	}
 
-	public void setList(List<Integer> list) {
-		this.list = list;
-	}
 	
-	 public void addValue(int value) {
+	
+	 public void addValue(Type value) {
 		 list.add(value);
 	 }
 	 
-	public int first() {
+	public Type first() {
 		if(list.isEmpty()) {
 			throw new IllegalStateException("The list is empty");
 		}
