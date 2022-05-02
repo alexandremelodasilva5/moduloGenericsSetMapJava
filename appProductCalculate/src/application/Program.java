@@ -8,6 +8,7 @@ import java.util.List;
 import java.util.Locale;
 
 import entities.Product;
+import services.CalculationService;
 
 public class Program {
 
@@ -25,13 +26,15 @@ public class Program {
 				list.add(new Product(fields[0], Double.parseDouble(fields[1])));
 				line = br.readLine();
 			}
+			
+			Product product = CalculationService.max(list);
+			System.out.print("Produto mais caro: ");
+			System.out.print(product);
 		}catch(IOException e) {
 			System.out.println(e.getMessage());
 		}
 		
-		for(Product p:list) {
-			System.out.println(p);
-		}
+		
 
 	}
 
