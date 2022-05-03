@@ -36,7 +36,7 @@ public class PrintService<Type> {
 			throw new IllegalStateException("The list is empty");
 		}
 		for(int i=0; i < list.size();i++) {
-			if(list.get(i) == list.get(0)) {
+			if(i == 0) {
 				System.out.print("["+list.get(i));
 			}else{
 				System.out.print(", "+list.get(i));

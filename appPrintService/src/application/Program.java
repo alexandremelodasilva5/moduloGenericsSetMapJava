@@ -15,15 +15,12 @@ public class Program {
 		int listSize = sc.nextInt();
 		
 		for(int i=0; i<listSize;i++) {
-			String number = sc.next();
+			String value = sc.next();
 			
-			ps.addValue(number);
+			ps.addValue(value);
 		}
 		
-		
-		
 		ps.print();
-		
 		
 		System.out.println("First: "+ps.first());
 		
