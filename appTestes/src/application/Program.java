@@ -7,6 +7,7 @@ import java.util.List;
 import entities.Circle;
 import entities.Rectangle;
 import entities.Shape;
+import entities.Clients;
 
 public class Program {
 
@@ -38,12 +39,25 @@ public class Program {
 		Number y = listNum.get(0);
 		nums.add(2);
 		nums.add(3);
-		//Number x = nums.get(0); não 
+		//Number x = nums.get(0);
+		
+		
+		Clients client1 = new Clients("Alexandre", "alexandre@gmail.com");
+		Clients client2 = new Clients("Maira", "maira@gmail.com");
+		Clients client3 = new Clients("Maira", "maira@gmail.com");
+		
+		
 		
 		System.out.println("A soma total das areas de shapes é : "+ String.format("%.2f", sum(list)));
 		System.out.println("A soma total das areas de circulos é: "+ String.format("%.2f", sum(listCircle)));
 		System.out.println(y);
 		printList(objList);
+		System.out.println(client1.hashCode());
+		System.out.println(client2.hashCode());
+		System.out.println(client3.hashCode());
+		System.out.println(client1.equals(client2));
+		System.out.println(client2.equals(client3));
+		System.out.println(client2 == client3);
 		
 	}
 	
