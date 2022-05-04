@@ -71,7 +71,8 @@ public class Program {
 		e.removeAll(b);
 		
 		
-		Set<Product> setProduct = new HashSet<Product>();
+		//Set<Product> setProduct = new HashSet<Product>();
+		Set<Product> setProduct = new TreeSet<Product>();
 		setProduct.add(new Product("tv", 3000));
 		setProduct.add(new Product("note", 4000));
 		setProduct.add(new Product("tablet", 5000));
@@ -100,7 +101,9 @@ public class Program {
 		System.out.println(d);
 		System.out.println(e);
 		System.out.println(setProduct.contains(prod));
-		
+		for(Product p : setProduct) {
+			System.out.println(p);
+		}
 	}
 	
 	/* a expressão <? extends Shape> faz com que a função aceita qualquer lista de Shape e suas subclasses, 
