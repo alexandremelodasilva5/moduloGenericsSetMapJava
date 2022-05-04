@@ -1,6 +1,7 @@
 package application;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 import entities.Circle;
@@ -18,8 +19,31 @@ public class Program {
 		listCircle.add(new Circle(2));
 		listCircle.add(new Circle(3));
 		
+		List<Integer> myInts = new ArrayList<>();
+		myInts.add(2);
+		myInts.add(10);
+		myInts.add(2);
+		
+		List<Double> myDouble = Arrays.asList(3.14, 6.28);
+		List<Object> objList = new ArrayList<Object>();
+		copy(myInts,objList);
+		copy(myDouble,objList);
+		
+		List<Object> myObjs = new ArrayList<Object>();
+		myObjs.add("Alex");
+		myObjs.add("Bob");
+		List<? super Number> nums = myObjs;
+		List<? extends Number> listNum = myInts;
+		//listNum.add(6);não funciona add(erro de compatibilidade), mas o get sim.
+		Number y = listNum.get(0);
+		nums.add(2);
+		nums.add(3);
+		//Number x = nums.get(0); não 
+		
 		System.out.println("A soma total das areas de shapes é : "+ String.format("%.2f", sum(list)));
 		System.out.println("A soma total das areas de circulos é: "+ String.format("%.2f", sum(listCircle)));
+		System.out.println(y);
+		printList(objList);
 		
 	}
 	
@@ -32,5 +56,22 @@ public class Program {
 			sum += s.area();
 		}
 		return sum;
+	}
+	
+	public static void copy(List<? extends Number> source, List<? super Number> destiny) {
+		for(Number number:source) {
+			destiny.add(number);
+		}
+	}
+	
+	public static void printList(List<?> list) {
+		for(int i=0; i<list.size();i++) {
+			if(i==0) {
+				System.out.print("[ "+list.get(i));
+			}else {
+				System.out.print(", "+list.get(i));
+			}	
+		}
+		System.out.println("]");
 	}
 }
