@@ -2,6 +2,7 @@ package application;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
@@ -29,6 +30,7 @@ public class Program {
 		
 		System.out.println("A soma total das areas de shapes é : "+ String.format("%.2f", sum(list)));
 		System.out.println("A soma total das areas de circulos é: "+ String.format("%.2f", sum(listCircle)));
+		System.out.println();
 		
 		List<Integer> myInts = new ArrayList<>();
 		myInts.add(2);
@@ -39,6 +41,7 @@ public class Program {
 		List<Object> objList = new ArrayList<Object>();
 		copy(myInts,objList);
 		copy(myDouble,objList);
+		System.out.println();
 		
 		List<Object> myObjs = new ArrayList<Object>();
 		myObjs.add("Alex");
@@ -53,7 +56,7 @@ public class Program {
 		
 		System.out.println(y);
 		printList(objList);
-		
+		System.out.println();
 		
 		Clients client1 = new Clients("Alexandre", "alexandre@gmail.com");
 		Clients client2 = new Clients("Maira", "maira@gmail.com");
@@ -65,7 +68,7 @@ public class Program {
 		System.out.println(client1.equals(client2));
 		System.out.println(client2.equals(client3));
 		System.out.println(client2 == client3);
-		
+		System.out.println();
 		
 		Set<String> set = new LinkedHashSet<>();
 		set.add("Tv");
@@ -85,11 +88,11 @@ public class Program {
 		Set<Integer> e = new TreeSet<Integer>(a);
 		e.removeAll(b);
 		
-		System.out.println();
+	
 		System.out.println(c);
 		System.out.println(d);
 		System.out.println(e);
-		
+		System.out.println();
 		//Set<Product> setProduct = new HashSet<Product>();
 		Set<Product> setProduct = new TreeSet<Product>();
 		setProduct.add(new Product("tv", 3000));
@@ -106,23 +109,34 @@ public class Program {
 		for(Product p : setProduct) {
 			System.out.println(p);
 		}
+		System.out.println();
 		
 		Map<String, String> cookies = new TreeMap<>();
-		
 		cookies.put("name", "Alexandre");
 		cookies.put("email", "alexandre@gmail.com");
 		cookies.put("telefone", "123456789");
-		
 		System.out.println(cookies.size());
 		System.out.println(cookies.get("name"));
 		System.out.println(cookies.containsKey("name"));
-		
-		
-		
 		cookies.remove("name");
 		for(String key:cookies.keySet()) {
 			System.out.println(key + ": "+cookies.get(key));
 		}
+		System.out.println();
+		
+		Map<Product, Double> stock = new HashMap<>();
+		Product p1 = new Product("TV", 900);
+		Product p2 = new Product("Note", 1200);
+		Product p3 = new Product("Tablet", 400);
+		
+		stock.put(p1, 10000.0);
+		stock.put(p2, 20000.0);
+		stock.put(p3, 10000.0);
+		
+		Product ps = new Product("TV", 900);
+		
+		System.out.println(stock.containsKey(ps));
+	
 	}
 	
 	/* a expressão <? extends Shape> faz com que a função aceita qualquer lista de Shape e suas subclasses, 
