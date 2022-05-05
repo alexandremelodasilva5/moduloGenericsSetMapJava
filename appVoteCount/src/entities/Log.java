@@ -1,14 +1,20 @@
 package entities;
 
-import java.util.Date;
-
-public class Log {
+public class Log implements Comparable<Log>{
 	private String name;
-	private Date date;
+	private Integer votes;
 	
-	public Log(String name, Date date) {
+	
+	
+
+
+	public Log(String name, Integer votes) {
 		this.name = name;
-		this.date = date;
+		this.votes = votes;
+	}
+
+	public Log() {
+		// TODO Auto-generated constructor stub
 	}
 
 	public String getName() {
@@ -19,20 +25,20 @@ public class Log {
 		this.name = name;
 	}
 
-	public Date getDate() {
-		return date;
+	public Integer getVotes() {
+		return votes;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setVotes(Integer votes) {
+		this.votes = votes;
 	}
 
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((date == null) ? 0 : date.hashCode());
 		result = prime * result + ((name == null) ? 0 : name.hashCode());
+		result = prime * result + ((votes == null) ? 0 : votes.hashCode());
 		return result;
 	}
 
@@ -45,17 +51,23 @@ public class Log {
 		if (getClass() != obj.getClass())
 			return false;
 		Log other = (Log) obj;
-		if (date == null) {
-			if (other.date != null)
-				return false;
-		} else if (!date.equals(other.date))
-			return false;
 		if (name == null) {
 			if (other.name != null)
 				return false;
 		} else if (!name.equals(other.name))
 			return false;
+		if (votes == null) {
+			if (other.votes != null)
+				return false;
+		} else if (!votes.equals(other.votes))
+			return false;
 		return true;
 	}
+
+	@Override
+	public int compareTo(Log other) {
+		return name.compareTo(other.getName());
+	}
+	
 	
 }
