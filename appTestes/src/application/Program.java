@@ -5,7 +5,9 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.LinkedHashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import java.util.TreeMap;
 import java.util.TreeSet;
 
 import entities.Circle;
@@ -24,6 +26,9 @@ public class Program {
 		List<Circle> listCircle = new ArrayList<Circle>();
 		listCircle.add(new Circle(2));
 		listCircle.add(new Circle(3));
+		
+		System.out.println("A soma total das areas de shapes é : "+ String.format("%.2f", sum(list)));
+		System.out.println("A soma total das areas de circulos é: "+ String.format("%.2f", sum(listCircle)));
 		
 		List<Integer> myInts = new ArrayList<>();
 		myInts.add(2);
@@ -46,10 +51,20 @@ public class Program {
 		nums.add(3);
 		//Number x = nums.get(0);
 		
+		System.out.println(y);
+		printList(objList);
+		
 		
 		Clients client1 = new Clients("Alexandre", "alexandre@gmail.com");
 		Clients client2 = new Clients("Maira", "maira@gmail.com");
 		Clients client3 = new Clients("Maira", "maira@gmail.com");
+		
+		System.out.println(client1.hashCode());
+		System.out.println(client2.hashCode());
+		System.out.println(client3.hashCode());
+		System.out.println(client1.equals(client2));
+		System.out.println(client2.equals(client3));
+		System.out.println(client2 == client3);
 		
 		
 		Set<String> set = new LinkedHashSet<>();
@@ -70,39 +85,43 @@ public class Program {
 		Set<Integer> e = new TreeSet<Integer>(a);
 		e.removeAll(b);
 		
+		System.out.println();
+		System.out.println(c);
+		System.out.println(d);
+		System.out.println(e);
 		
 		//Set<Product> setProduct = new HashSet<Product>();
 		Set<Product> setProduct = new TreeSet<Product>();
 		setProduct.add(new Product("tv", 3000));
 		setProduct.add(new Product("note", 4000));
 		setProduct.add(new Product("tablet", 5000));
-		
-		
 		Product prod = new Product("note", 4000);
-		
-		System.out.println("A soma total das areas de shapes é : "+ String.format("%.2f", sum(list)));
-		System.out.println("A soma total das areas de circulos é: "+ String.format("%.2f", sum(listCircle)));
-		System.out.println(y);
-		printList(objList);
-		System.out.println(client1.hashCode());
-		System.out.println(client2.hashCode());
-		System.out.println(client3.hashCode());
-		System.out.println(client1.equals(client2));
-		System.out.println(client2.equals(client3));
-		System.out.println(client2 == client3);
 		System.out.println(set.contains("Tablet"));
 		set.remove("Tv");
 		set.removeIf(x -> x.charAt(0) == 'N');
 		for(String s : set) {
 			System.out.print(s+" ");
 		}
-		System.out.println();
-		System.out.println(c);
-		System.out.println(d);
-		System.out.println(e);
 		System.out.println(setProduct.contains(prod));
 		for(Product p : setProduct) {
 			System.out.println(p);
+		}
+		
+		Map<String, String> cookies = new TreeMap<>();
+		
+		cookies.put("name", "Alexandre");
+		cookies.put("email", "alexandre@gmail.com");
+		cookies.put("telefone", "123456789");
+		
+		System.out.println(cookies.size());
+		System.out.println(cookies.get("name"));
+		System.out.println(cookies.containsKey("name"));
+		
+		
+		
+		cookies.remove("name");
+		for(String key:cookies.keySet()) {
+			System.out.println(key + ": "+cookies.get(key));
 		}
 	}
 	
